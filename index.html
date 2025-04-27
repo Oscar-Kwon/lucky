@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<!-- 
+    옥차방 웹사이트 (v1.0.0)
+    Last updated: 2024-01-15
+    Author: Okchabang Dev Team
+-->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🌿 기본 메타 정보 -->
+    <title>부산 옥차방 | 행운을 만나는 복고 카페</title>
+    <meta name="description" content="부산 중구 롯데백화점에서 만나는 레트로 감성 카페 옥차방. 구슬 아이스크림과 시그니처 음료로 특별한 행운을 선사합니다.">
+    <meta name="keywords" content="부산카페,롯데백화점,옥차방,구슬아이스크림,레트로카페,복고카페">
+    <meta name="author" content="옥차방 Okchabang">
+
+    <!-- 🌐 Open Graph (SNS 공유) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="부산 옥차방 | 행운을 만나는 복고 카페">
+    <meta property="og:description" content="부산 중구 롯데백화점에서 만나는 레트로 감성 카페 옥차방. 구슬 아이스크림과 시그니처 음료로 특별한 행운을 선사합니다.">
+    <meta property="og:image" content="https://okchabang.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://okchabang.com">
+    <meta property="og:site_name" content="옥차방 Okchabang">
+
+    <!-- 🐤 Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="부산 옥차방 | 행운을 만나는 복고 카페">
+    <meta name="twitter:description" content="부산 중구 롯데백화점에서 만나는 레트로 감성 카페 옥차방">
+    <meta name="twitter:image" content="https://okchabang.com/images/og-image.jpg">
+
+    <!-- 📱 모바일 앱, PWA 아이콘 대응 -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+
+    <!-- 🎨 브랜딩 웹폰트 -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" 
+          as="style" 
+          onload="this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" 
+              rel="stylesheet">
+    </noscript>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/pretendard.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID_HERE"></script>
+
+    <!-- GA4 연결 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX'); // 여기에 본인의 GA4 ID 넣기
+    </script>
+
+    <!-- AOS 라이브러리 추가 -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,  // 애니메이션 지속 시간 (1초)
+                once: true       // 애니메이션을 한 번만 실행
+            });
+
+            // 네비게이션 스크롤 효과
+            const mainNav = document.querySelector('.main-nav');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    mainNav.classList.add('compact');
+                } else {
+                    mainNav.classList.remove('compact');
+                }
+                lastScrollY = window.scrollY;
+            });
+        });
+    </script>
+
+    <style>
+        /* 기본 리셋 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 로딩 상태 관리 */
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loaded #preloader {
+            display: none !important;
+        }
+
+        #preloader {
+            display: none;
+        }
+
+        /* 네비게이션 스타일 */
+        .main-nav {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        .nav-container {
+            pointer-events: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            width: fit-content;
+            max-width: 90%;
+        }
+
+        .nav-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+            font-family: var(--font-quicksand);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            opacity: 0.8;
+            color: #98E2CF;
+        }
+
+        /* 히어로 섹션 스타일 */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 0;
+            z-index: 3;
+        }
+
+        .hero-slider {
+            display: flex;
+            width: max-content;
+            height: 100%;
+            transition: transform 0.8s ease, gap 0.8s ease;
+            gap: 0px;
+        }
+
+        .hero-slide {
+            flex: 0 0 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .hero .hero-logo {
+            width: 224px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero .hero-logo {
+                width: 176px;
+            }
+        }
+
+        /* 스크롤 마진 조정 */
+        #featured-menu,
+        #story-section,
+        #explore,
+        #franchise {
+            scroll-margin-top: 70px;
+        }
+
+
+        /* 모바일 대응 */
+        @media screen and (max-width: 1024px) { /* 태블릿 크기(1024px)부터 적용 */
+            .main-nav {
+                display: none; /* 네비게이션 바 숨김 */
+            }
+
+            /* hero-second의 margin-top 조정 (네비게이션 바가 없으므로) */
+            .hero-second {
+                margin-top: 0;
+            }
+
+            /* 로고 크기 조정 */
+            .hero-second .hero-logo {
+                width: 176px;
+            }
+        }
+
+        /* 더 작은 모바일 화면에서의 추가 조정이 필요한 경우 */
+        @media screen and (max-width: 768px) {
+            .hero-second .hero-logo {
+                width: 156px; /* 더 작은 화면에서는 로고를 더 작게 */
+            }
+        }
+
+        /* 로딩 상태 관리 */
+        body.loading {
+            overflow: hidden;
+        }
+
+        body.loaded #preloader {
+            display: none !important;
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        body.loaded #preloader {
+            transform: translateY(-100%);
+        }
+
+        #preloader img {
+            width: 120px;
+            height: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: logoFloat 0.8s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+            filter: brightness(1.2) contrast(1.1); /* 밝기와 대비 향상 */
+        }
+
+        /* SVG 특정 스타일 */
+        #preloader img[src$=".svg"] {
+            fill: #FFFFFF;
+            filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+        }
+
+        @keyframes logoFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #main-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        body.loaded #main-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 입력창 포커스 스타일 */
+        .signup-input:focus {
+            outline: none;
+            border-color: #98E2CF;
+            box-shadow: 0 0 0 2px rgba(152, 226, 207, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        /* 공통 버튼 스타일 */
+        .signup-btn,
+        .learn-more-btn,
+        .cta-button,
+        .category-btn,
+        .sticky-inquiry-btn {
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn:hover,
+        .learn-more-btn:hover,
+        .cta-button:hover,
+        .category-btn:hover,
+        .sticky-inquiry-btn:hover {
+            background-color: #98E2CF;
+            border-color: #98E2CF;
+            color: #000000;
+        }
+
+        /* 카테고리 버튼 활성화 상태 */
+        .category-btn.active {
+            background-color: #98E2CF;
+            border-color: #98E2CF;
+            color: #000000;
+        }
+
+        /* 모바일 대응 스타일 */
+        @media screen and (max-width: 768px) {
+            .contact-section .section-title {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        /* story-section에 상단 여백 추가 */
+        .story-section {
+            position: relative;
+            padding: 120px 0;
+            background: #000000;
+            z-index: 2;
+            margin-top: 0;
+        }
+
+        /* 메뉴 섹션 수정 */
+        .featured-menu {
+            position: relative;
+            z-index: 2;
+            padding-top: 120px;
+            padding: 10px;
+            margin-top: 0;
+            margin: 0px;
+        }
+
+        /* 햄버거 메뉴 스타일 */
+        .hamburger-menu {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10000; /* 가장 위에 오도록 수정 */
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3); /* 가시성을 위한 그림자 */
+        }
+
+        /* 태블릿/모바일 대응 */
+        @media screen and (max-width: 1024px) {
+            .main-nav {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block; /* 햄버거 메뉴 표시 */
+            }
+
+            .hero {
+                margin-top: 0;
+            }
+
+            .hero .hero-logo {
+                width: 176px;
+            }
+        }
+
+        /* 모바일 화면에서의 추가 조정 */
+        @media screen and (max-width: 768px) {
+            .hamburger-menu {
+                top: 15px; /* 더 작은 화면에서는 위치 조정 */
+                left: 15px;
+            }
+
+            .hero .hero-logo {
+                width: 156px;
+            }
+        }
+
+        /* 호버 효과 */
+        @media (hover: hover) {
+            .hamburger-menu:hover .hamburger-line {
+                background-color: #f0f0f0;
+            }
+        }
+
+        /* 활성화 상태 스타일 (메뉴가 열렸을 때) */
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* 모바일 네비게이션 스타일 수정 */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9990;
+            transition: all 0.4s ease; /* transition 속성 수정 */
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .mobile-nav-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 20px; /* 상단 햄버거 메뉴 고려 */
+        }
+
+        .mobile-nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-nav.active .mobile-nav-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-menu .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            font-family: var(--font-quicksand);
+        }
+
+        .mobile-nav-menu .nav-link.active {
+            color: #98E2CF;
+        }
+
+        .mobile-nav-menu li {
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            transition-delay: calc(0.1s * var(--index));
+        }
+
+        .mobile-nav.active .mobile-nav-menu li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 호버 효과 수정 */
+        .mobile-nav-menu .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #98E2CF;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .mobile-nav-menu .nav-link:hover::after,
+        .mobile-nav-menu .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* 햄버거 메뉴 활성화 상태 스타일 수정 */
+        .hamburger-menu.active {
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .hamburger-menu.active .hamburger-line {
+            background-color: #fff;
+        }
+
+        /* 태블릿/모바일 대응 */
+        @media screen and (max-width: 1024px) {
+            .mobile-nav-menu a {
+                font-size: 22px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-nav-menu a {
+                font-size: 20px;
+            }
+
+            .mobile-nav-menu li {
+                margin: 25px 0;
+            }
+        }
+
+        /* 모바일 가로 모드 대응 */
+        @media screen and (max-height: 600px) {
+            .mobile-nav-menu li {
+                margin: 15px 0;
+            }
+
+            .mobile-nav-menu a {
+                font-size: 18px;
+            }
+        }
+
+        /* body에 menu-active 클래스가 있을 때 스크롤 방지 */
+        body.menu-active {
+            overflow: hidden;
+        }
+
+        /* 모바일 메뉴가 열렸을 때의 스타일 */
+        .mobile-nav.active {
+            left: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* 메뉴 아이템 호버 효과 */
+        .menu-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 모바일 네비게이션 */
+        .mobile-nav-menu li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* 404 페이지 스타일 */
+        .error-404 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #000;
+            color: #FFFFFF;
+        }
+
+        .error-404 h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-quicksand);
+        }
+
+        .error-404 p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* 지도 컨테이너 스타일 수정 */
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.05); /* 배경색 추가 */
+            position: relative; /* 포지션 추가 */
+        }
+
+        /* 백업 이미지 스타일 */
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('image/map-placeholder.png'); /* 임시 지도 이미지 */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        /* 지도 로드 실패 메시지 */
+        .map-container::after {
+            content: 'MAP';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-quicksand);
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            z-index: 2;
+        }
+
+        /* 반응형 스타일 유지 */
+        @media (max-width: 768px) {
+            .map-container {
+                height: 400px;
+            }
+        }
+
+        /* 프랜차이즈 섹션 스타일 수정 */
+        .franchise-cta {
+            margin-top: 0; /* 기존 500px에서 수정 */
+            padding: 100px 0;
+        }
+
+        .franchise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* 텍스트 영역 스타일 */
+        .franchise-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .franchise-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 38px;
+            font-weight: 300;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .franchise-subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px; /* 추가 */
+        }
+
+        /* 폼과 이미지 컨테이너 */
+        .franchise-form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 0; /* 수정 */
+        }
+
+        /* 폼 영역 스타일 */
+        .franchise-form {
+            width: 100%;
+        }
+
+        .franchise-form .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px; /* 폼 최대 너비 제한 */
+        }
+
+        .franchise-form .signup-input {
+            background: rgba(187, 187, 187, 0.15);
+            border: 1px solid rgba(136, 136, 136, 0.1);
+            border-radius: 30px;
+            padding: 12px 20px;
+            color: #FFFFFF;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .franchise-form .signup-textarea {
+            min-height: 120px;
+            resize: vertical;
+            border-radius: 20px;
+            font-family: inherit;
+        }
+
+        /* 이미지 영역 스타일 */
+        .franchise-image {
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 768px) {
+            .franchise-cta {
+                margin-top: 300px;
+                padding: 60px 0;
+            }
+
+            .franchise-container {
+                padding: 0 20px;
+            }
+
+            .franchise-text {
+                margin-bottom: 40px;
+            }
+
+            .franchise-title {
+                font-size: 32px;
+            }
+
+            .franchise-subtitle {
+                font-size: 16px;
+            }
+
+            .franchise-form-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .franchise-form {
+                display: flex;
+                justify-content: center;
+            }
+
+            .franchise-form .signup-form {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .franchise-image {
+                display: none; /* 모바일에서는 이미지 영역 숨김 */
+            }
+        }
+
+        /* 더 작은 모바일 화면 대응 */
+        @media (max-width: 480px) {
+            .franchise-container {
+                padding: 0 16px;
+            }
+
+            .franchise-form .signup-form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <button class="hamburger-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <!-- 모바일 네비게이션 메뉴 -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-container">
+            <ul class="mobile-nav-menu">
+                <li><a href="#" class="nav-link active" data-section="home">HOME</a></li>
+                <li><a href="#story-section" class="nav-link" data-section="story">ABOUT</a></li>
+                <li><a href="#featured-menu" class="nav-link" data-section="menu">MENU</a></li>
+                <li><a href="#explore" class="nav-link" data-section="explore">EXPLORE</a></li>
+                <li><a href="#franchise" class="nav-link" data-section="franchise">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="/assets/ocb-glyph-white.svg" alt="옥차방 로딩 심볼" />
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="#" class="nav-link" data-section="home">HOME</a>
+                <a href="#story-section" class="nav-link" data-section="story">ABOUT</a>
+                <a href="#featured-menu" class="nav-link" data-section="menu">MENU</a>
+                <a href="#explore" class="nav-link" data-section="explore">EXPLORE</a>
+                <a href="#franchise" class="nav-link" data-section="franchise">CONTACT</a>
+            </div>
+
+            <!-- 모바일 버전 -->
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <div class="mobile-menu-overlay"></div>
+            <div class="mobile-nav-container">
+                <a href="#" class="mobile-nav-link">HOME</a>
+                <a href="#story-section" class="mobile-nav-link">ABOUT</a>
+                <a href="#featured-menu" class="mobile-nav-link">MENU</a>
+                <a href="#explore" class="mobile-nav-link">EXPLORE</a>
+                <a href="#franchise" class="mobile-nav-link">CONTACT</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider">
+                <!-- 마지막 슬라이드 복제 -->
+                <div class="hero-slide" style="background-image: url('image/hero03.png')"></div>
+                <!-- 실제 슬라이드들 -->
+                <div class="hero-slide" style="background-image: url('image/hero01.png')"></div>
+                <div class="hero-slide" style="background-image: url('image/hero02.png')"></div>
+                <div class="hero-slide" style="background-image: url('image/hero03.png')"></div>
+                <!-- 첫 번째 슬라이드 복제 -->
+                <div class="hero-slide" style="background-image: url('image/hero01.png')"></div>
+            </div>
+            <div class="hero-content">
+                <img src="image/logos.png" alt="옥차방" class="hero-logo">
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section" id="story-section">
+            <div class="story-container">
+                <div class="story-text">
+                    <h2 class="story-title">THE OKCHABANG STORY</h2>
+                    <p class="story-subtitle">INSPIRING THE WORLD TO SEEK<br>PERFECTION IN ORIGINALITY.</p>
+                    <a href="#" class="learn-more-btn">브랜드 소개</a>
+                </div>
+                <div class="story-image">
+                    <div class="image-stack">
+                        <img src="image/brand-drink1.png" alt="옥차방 시그니처 음료" class="featured-drink main-image">
+                        <img src="image/brand-drink2.png" alt="옥차방 음료 2" class="featured-drink back-image-1">
+                        <img src="image/brand-drink3.png" alt="옥차방 음료 3" class="featured-drink back-image-2">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ 대표 메뉴 소개 섹션 -->
+        <section class="featured-menu" id="featured-menu">
+            <h2 class="section-title">OKCHABANG MENU</h2>
+            
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="icecream">IceCream</button>
+                <button class="category-btn" data-category="coffee">Coffee</button>
+                <button class="category-btn" data-category="beverage">Tea & Ade</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- IceCream 메뉴 -->
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Strawberry%20Plain-icecream.png" alt="딸기 플레인">
+                    <h3>딸기 플레인</h3>
+                    <p>Strawberry Plain</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Blue%20Bubble-icecream.png" alt="블루 버블">
+                    <h3>블루 버블</h3>
+                    <p>Blue Bubble</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Cotton%20Candy-icecream.png" alt="솜사탕">
+                    <h3>솜사탕</h3>
+                    <p>Cotton Candy</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Double%20Chocolate-icecream.png" alt="더블 초콜릿">
+                    <h3>더블 초콜릿</h3>
+                    <p>Double Chocolate</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Lemon%20Lime-icecream.png" alt="레몬 라임">
+                    <h3>레몬 라임</h3>
+                    <p>Lemon Lime</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Lotuva-icecream.png" alt="로투바">
+                    <h3>로투바</h3>
+                    <p>Lotuva</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Rainbow-icecream.png" alt="레인보우">
+                    <h3>레인보우</h3>
+                    <p>Rainbow</p>
+                </div>
+                <div class="menu-item active" data-category="icecream">
+                    <img src="menu/Banana%20Split-icecream.png" alt="바나나 스플릿">
+                    <h3>바나나 스플릿</h3>
+                    <p>Banana Split</p>
+                </div>
+
+                <!-- Coffee 메뉴 -->
+                <div class="menu-item" data-category="coffee">
+                    <img src="menu/menu-americano.png" alt="아메리카노">
+                    <h3>아메리카노</h3>
+                    <p>Americano</p>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <img src="menu/menu-caffelatte.png" alt="카페라떼">
+                    <h3>카페라떼</h3>
+                    <p>Caffe Latte</p>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <img src="menu/menu-vanillalatte.png" alt="바닐라라떼">
+                    <h3>바닐라라떼</h3>
+                    <p>Vanilla Latte</p>
+                </div>
+
+                <!-- Tea & Ade 메뉴 -->
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-milktea.png" alt="밀크티">
+                    <h3>밀크티</h3>
+                    <p>Milk Tea</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-greentealatte.png" alt="그린티라떼">
+                    <h3>그린티라떼</h3>
+                    <p>Green Tea Latte</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-lemontea.png" alt="레몬티">
+                    <h3>레몬티</h3>
+                    <p>Lemon Tea</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-grapefruittea.png" alt="자몽티">
+                    <h3>자몽티</h3>
+                    <p>Grapefruit Tea</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-icedtea.png" alt="아이스티">
+                    <h3>아이스티</h3>
+                    <p>Iced Tea</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-lemonade.png" alt="레모네이드">
+                    <h3>레모네이드</h3>
+                    <p>Lemonade</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-grapefruitade.png" alt="자몽에이드">
+                    <h3>자몽에이드</h3>
+                    <p>Grapefruit Ade</p>
+                </div>
+                <div class="menu-item" data-category="beverage">
+                    <img src="menu/menu-greengrapeade.png" alt="청포도에이드">
+                    <h3>청포도에이드</h3>
+                    <p>Green Grape Ade</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORE 섹션 -->
+        <section id="explore" class="explore-section">
+            <div class="explore-container">
+                <div class="explore-text">
+                    <h2 class="section-title">EXPLORE</h2>
+                    <p class="explore-description">
+                        옥차방의 특별한 공간을 만나보세요. 부산 롯데백화점 중구점을 시작으로, 서울 신사동의 새로운 팝업 스토어까지, 각지에서 여러분을 기다리고 있습니다.
+                    </p>
+                    <div class="store-list">
+                        <div class="store-item">
+                            <h3>옥차방 부산점</h3>
+                            <p>부산 중구 롯데백화점 중구점 (Coming Soon)</p>
+                        </div>
+                        <div class="store-item">
+                            <h3>옥차방 신사점</h3>
+                            <p>서울 강남구 신사동 (Coming Soon)</p>
+                        </div>
+                        <div class="store-item">
+                            <h3>부산항 팝업</h3>
+                            <p>6월 3일 진행 예정</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 오른쪽 컬럼: 네이버 지도 -->
+                <div id="map" class="map-container" aria-label="매장 위치 지도">
+                    <!-- 지도가 로드되지 않을 경우 표시될 내용 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ✨ 프랜차이즈 CTA 추가 -->
+        <section id="franchise" class="franchise-cta">
+            <div class="franchise-container">
+                <!-- 상단 텍스트 영역 -->
+                <div class="franchise-text">
+                    <h2 class="franchise-title">옥차방 창업에 관심 있으신가요?</h2>
+                    <p class="franchise-subtitle">레트로 감성 아이스크림 브랜드, 지금 바로 창업 문의하세요.</p>
+                </div>
+                
+                <!-- 폼과 이미지 컨테이너 -->
+                <div class="franchise-form-container">
+                    <!-- 왼쪽 폼 영역 -->
+                    <div class="franchise-form">
+                        <form class="signup-form">
+                            <input type="text" placeholder="신청자 성함" class="signup-input">
+                            <input type="tel" placeholder="전화번호 11자리 (-없이)" class="signup-input">
+                            <input type="text" placeholder="창업희망지역" class="signup-input">
+                            <textarea placeholder="문의내용" class="signup-input signup-textarea"></textarea>
+                            <button type="submit" class="signup-btn">상담 신청하기</button>
+                        </form>
+                    </div>
+                    
+                    <!-- 오른쪽 이미지 영역 -->
+                    <div class="franchise-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 브로셔 섹션 추가 -->
+        <section class="brochure-section">
+            <div class="cta-brochure">
+                <h3>BRAND BROCHURE</h3>
+                <iframe 
+                    src="/brochure/okchabang-brochure.pdf#toolbar=0" 
+                    width="100%" 
+                    height="500px" 
+                    style="border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px;"
+                    class="brochure-frame"
+                ></iframe>
+                <a id="download-brochure" 
+                   href="/brochure/okchabang-brochure.pdf" 
+                   download 
+                   class="cta-button">
+                    📥 브로셔 다운로드
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT US 섹션 -->
+        <section class="contact-section">
+            <h2 class="section-title">CONTACT US</h2>
+            <div class="contact-content">
+                <!-- 이메일 정보 -->
+                <div class="email-info">
+                    <div class="location">
+                        <h4>Seoul</h4>
+                        <p>info@okchabang.com</p>
+                    </div>
+                    <div class="location">
+                        <h4>Busan</h4>
+                        <p>hello.bs@okchabang.com</p>
+                    </div>
+                </div>
+
+                <!-- 협업 및 제휴문의 폼 -->
+                <div class="contact-form" style="width: 100%; display: flex; justify-content: center;">
+                    <form class="signup-form" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                        <input type="text" placeholder="담당자 성함" class="signup-input" style="width: 100%;">
+                        <input type="email" placeholder="담당자 이메일" class="signup-input" style="width: 100%;">
+                        <button type="submit" class="signup-btn">제휴 문의하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">© 2025 okchabang. All Rights Reserved.</p>
+            <p class="slogan">Perfection in Originality.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky Inquiry -->
+    <div class="sticky-inquiry">
+        <a href="#franchise" class="sticky-inquiry-btn">창업 문의</a>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- 햄버거 메뉴 스크립트 추가 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // 스크롤 시 현재 섹션에 해당하는 메뉴 활성화
+            window.addEventListener('scroll', () => {
+                const sections = ['home', 'story', 'menu', 'explore', 'franchise'];
+                const currentSection = sections.find(section => {
+                    if (section === 'home') {
+                        return window.scrollY < 100;
+                    }
+                    const element = document.querySelector(`#${section}-section`) || 
+                                  document.querySelector(`#${section}`);
+                    if (!element) return false;
+                    const rect = element.getBoundingClientRect();
+                    return rect.top <= 100 && rect.bottom >= 100;
+                });
+
+                if (currentSection) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', 
+                            link.getAttribute('data-section') === currentSection);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
