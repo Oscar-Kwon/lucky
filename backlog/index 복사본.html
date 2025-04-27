@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🌿 기본 메타 정보 -->
+    <title>옥차방 | 레트로 구슬 아이스크림 브랜드</title>
+    <meta name="description" content="모든 세대가 함께 추억을 나누고, 따뜻한 행운을 만나는 공간 – 복고 감성과 현대적 감각이 조화를 이루는 티&디저트 하우스 '옥차방'입니다.">
+    <meta name="keywords" content="옥차방, 티하우스, 복고 카페, 구슬아이스크림, 행운의 공간, 디저트카페, 부산 티카페, 레트로 카페, 다방 감성, 감성카페">
+    <meta name="author" content="옥차방 Okchabang">
+
+    <!-- 🌐 Open Graph (SNS 공유) -->
+    <meta property="og:title" content="옥차방 | 따뜻한 행운을 나누는 복고 감성 구슬 아이스크림 브랜드">
+    <meta property="og:description" content="복고적인 따뜻함과 현대적 감성이 어우러진 티&디저트 카페. 모두가 함께하는 사랑방, 옥차방으로 초대합니다.">
+    <meta property="og:image" content="image/og-img.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://okchabang.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="옥차방 Okchabang">
+
+    <!-- 🐤 Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="옥차방 | 레트로 구슬 아이스크림 브랜드">
+    <meta name="twitter:description" content="모든 세대가 함께 추억을 나누는 사랑방, 구슬아이스크림과 따뜻한 티가 있는 옥차방.">
+    <meta name="twitter:image" content="image/og-image.png">
+
+    <!-- 📱 모바일 앱, PWA 아이콘 대응 -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+
+    <!-- 🎨 브랜딩 웹폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/pretendard.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID_HERE"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <!-- 웹 버전 네비게이션 -->
+        <div class="nav-container">
+            <a href="#home" class="nav-link">HOME</a>
+            <a href="#story-section" class="nav-link">ABOUT</a>
+            <a href="#featured-menu" class="nav-link">MENU</a>
+            <a href="#explore" class="nav-link">EXPLORE</a>
+            <a href="#contact" class="nav-link">CONTACT</a>
+        </div>
+
+        <!-- 모바일 버전 -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+        </button>
+        <div class="mobile-menu-overlay"></div>
+        <div class="mobile-nav-container">
+            <a href="#home" class="mobile-nav-link">HOME</a>
+            <a href="#story-section" class="mobile-nav-link">ABOUT</a>
+            <a href="#featured-menu" class="mobile-nav-link">MENU</a>
+            <a href="#explore" class="mobile-nav-link">EXPLORE</a>
+            <a href="#contact" class="mobile-nav-link">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-slider">
+            <div class="slide" style="background-image: url('image/hero01.png')"></div>
+            <div class="slide" style="background-image: url('image/hero02.png')"></div>
+            <div class="slide" style="background-image: url('image/hero03.png')"></div>
+        </div>
+        <div class="hero-content">
+            <img src="image/logos.png" alt="옥차방" class="hero-logo">
+            <p id="lucky-message" class="lucky-message"></p>
+        </div>
+    </header>
+
+    <!-- ✨ 브랜드 스토리 섹션 -->
+    <section class="story-section" id="story-section">
+        <div class="story-container">
+            <div class="story-text">
+                <h2 class="story-title">THE OKCHABANG STORY</h2>
+                <p class="story-subtitle">INSPIRING THE WORLD TO SEEK<br>PERFECTION IN ORIGINALITY.</p>
+                <a href="#" class="learn-more-btn">브랜드 소개</a>
+            </div>
+            <div class="story-image">
+                <div class="image-stack">
+                    <img src="image/brand-drink1.png" alt="옥차방 시그니처 음료" class="featured-drink main-image">
+                    <img src="image/brand-drink2.png" alt="옥차방 음료 2" class="featured-drink back-image-1">
+                    <img src="image/brand-drink3.png" alt="옥차방 음료 3" class="featured-drink back-image-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✨ 대표 메뉴 소개 섹션 -->
+    <section class="featured-menu" id="featured-menu">
+        <h2 class="section-title">OKCHABANG MENU</h2>
+        
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="icecream">IceCream</button>
+            <button class="category-btn" data-category="coffee">Coffee</button>
+            <button class="category-btn" data-category="tea">Tea</button>
+            <button class="category-btn" data-category="ade">Ade</button>
+        </div>
+
+        <div class="menu-grid">
+            <!-- IceCream 메뉴 -->
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Strawberry%20Plain-icecream.png" alt="딸기 플레인">
+                <h3>딸기 플레인</h3>
+                <p>Strawberry Plain</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Blue%20Bubble-icecream.png" alt="블루 버블">
+                <h3>블루 버블</h3>
+                <p>Blue Bubble</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Cotton%20Candy-icecream.png" alt="솜사탕">
+                <h3>솜사탕</h3>
+                <p>Cotton Candy</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Double%20Chocolate-icecream.png" alt="더블 초콜릿">
+                <h3>더블 초콜릿</h3>
+                <p>Double Chocolate</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Lemon%20Lime-icecream.png" alt="레몬 라임">
+                <h3>레몬 라임</h3>
+                <p>Lemon Lime</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Lotuva-icecream.png" alt="로투바">
+                <h3>로투바</h3>
+                <p>Lotuva</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Rainbow-icecream.png" alt="레인보우">
+                <h3>레인보우</h3>
+                <p>Rainbow</p>
+            </div>
+            <div class="menu-item active" data-category="icecream">
+                <img src="menu/Banana%20Split-icecream.png" alt="바나나 스플릿">
+                <h3>바나나 스플릿</h3>
+                <p>Banana Split</p>
+            </div>
+
+            <!-- Coffee 메뉴 -->
+            <div class="menu-item" data-category="coffee">
+                <img src="menu/menu-americano.png" alt="아메리카노">
+                <h3>아메리카노</h3>
+                <p>Americano</p>
+            </div>
+            <div class="menu-item" data-category="coffee">
+                <img src="menu/menu-caffelatte.png" alt="카페라떼">
+                <h3>카페라떼</h3>
+                <p>Caffe Latte</p>
+            </div>
+            <div class="menu-item" data-category="coffee">
+                <img src="menu/menu-vanillalatte.png" alt="바닐라라떼">
+                <h3>바닐라라떼</h3>
+                <p>Vanilla Latte</p>
+            </div>
+
+            <!-- Tea 메뉴 -->
+            <div class="menu-item" data-category="tea">
+                <img src="menu/menu-milktea.png" alt="밀크티">
+                <h3>밀크티</h3>
+                <p>Milk Tea</p>
+            </div>
+            <div class="menu-item" data-category="tea">
+                <img src="menu/menu-greentealatte.png" alt="그린티라떼">
+                <h3>그린티라떼</h3>
+                <p>Green Tea Latte</p>
+            </div>
+            <div class="menu-item" data-category="tea">
+                <img src="menu/menu-lemontea.png" alt="레몬티">
+                <h3>레몬티</h3>
+                <p>Lemon Tea</p>
+            </div>
+            <div class="menu-item" data-category="tea">
+                <img src="menu/menu-grapefruittea.png" alt="자몽티">
+                <h3>자몽티</h3>
+                <p>Grapefruit Tea</p>
+            </div>
+            <div class="menu-item" data-category="tea">
+                <img src="menu/menu-icedtea.png" alt="아이스티">
+                <h3>아이스티</h3>
+                <p>Iced Tea</p>
+            </div>
+
+            <!-- Ade 메뉴 -->
+            <div class="menu-item" data-category="ade">
+                <img src="menu/menu-lemonade.png" alt="레모네이드">
+                <h3>레모네이드</h3>
+                <p>Lemonade</p>
+            </div>
+            <div class="menu-item" data-category="ade">
+                <img src="menu/menu-grapefruitade.png" alt="자몽에이드">
+                <h3>자몽에이드</h3>
+                <p>Grapefruit Ade</p>
+            </div>
+            <div class="menu-item" data-category="ade">
+                <img src="menu/menu-greengrapeade.png" alt="청포도에이드">
+                <h3>청포도에이드</h3>
+                <p>Green Grape Ade</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE 섹션 -->
+    <section id="explore" class="explore-section">
+        <div class="explore-container">
+            <!-- 왼쪽 컬럼: 텍스트 -->
+            <div class="explore-text">
+                <h2 class="section-title">EXPLORE</h2>
+                <p class="explore-description">
+                    옥차방의 특별한 공간을 만나보세요. 부산 롯데백화점 중구점을 시작으로, 서울 신사동의 새로운 팝업 스토어까지, 각지에서 여러분을 기다리고 있습니다.
+                </p>
+                <div class="store-list">
+                    <div class="store-item">
+                        <h3>옥차방 부산점</h3>
+                        <p>부산 중구 롯데백화점 중구점 (Coming Soon)</p>
+                    </div>
+                    <div class="store-item">
+                        <h3>옥차방 신사점</h3>
+                        <p>서울 강남구 신사동 (Coming Soon)</p>
+                    </div>
+                    <div class="store-item">
+                        <h3>부산항 팝업</h3>
+                        <p>6월 3일 진행 예정</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오른쪽 컬럼: 네이버 지도 -->
+            <div id="map" class="map-container"></div>
+        </div>
+    </section>
+
+    <!-- ✨ 프랜차이즈 CTA 추가 -->
+    <section class="franchise-cta" id="franchise">
+        <div class="franchise-container">
+            <div class="franchise-text">
+                <h2 class="franchise-title">옥차방 창업에 관심 있으신가요?</h2>
+                <p class="franchise-subtitle">레트로 감성 아이스크림 브랜드, 지금 바로 창업 문의하세요.</p>
+                <a href="https://tally.so/r/your-form-id" class="cta-button">창업 문의</a>
+            </div>
+            <div class="franchise-image">
+                <!-- 이미지는 클라이언트가 추가할 예정이라 가정 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US 섹션 -->
+    <section class="contact-section">
+        <h2 class="section-title">CONTACT US</h2>
+        <div class="email-info">
+            <div class="location">
+                <h4>Seoul</h4>
+                <p>info@okchabang.com</p>
+            </div>
+            <div class="location">
+                <h4>Busan</h4>
+                <p>hello.bs@okchabang.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 협업 및 제휴문의 섹션 -->
+    <section class="footer-signup" id="contact-form">
+        <h3>협업 및 제휴문의</h3>
+        <form class="signup-form">
+            <input type="text" placeholder="Your Name" class="signup-input">
+            <input type="email" placeholder="Your Email" class="signup-input">
+            <button type="submit" class="signup-btn">제출하기</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">© 2025 okchabang. All Rights Reserved.</p>
+            <p class="slogan">Perfection in Originality.</p>
+        </div>
+    </footer>
+
+    <script>
+    // 슬라이드 기능
+    const slider = document.querySelector('.hero-slider');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 2;  // 3번째 이미지(인덱스 2)부터 시작
+
+    function initSlider() {
+        // 첫 번째 슬라이드를 복제하여 마지막에 추가
+        const firstSlideClone = slides[0].cloneNode(true);
+        slider.appendChild(firstSlideClone);
+
+        // 슬라이드 요소 다시 쿼리
+        const allSlides = slider.querySelectorAll('.slide');
+
+        // 트랜지션 제거 후 초기 transform 설정
+        allSlides.forEach(slide => {
+            slide.style.transition = 'none';
+            slide.style.transform = `translateX(${(Array.from(allSlides).indexOf(slide) - currentSlide) * 100}%)`;
+        });
+
+        // 다음 프레임에 트랜지션 활성화
+        requestAnimationFrame(() => {
+            allSlides.forEach(slide => {
+                slide.style.transition = 'transform 1s linear';
+            });
+        });
+
+        setTimeout(moveSlide, 100);
+    }
+
+    function moveSlide() {
+        const allSlides = slider.querySelectorAll('.slide');
+        currentSlide++;
+
+        allSlides.forEach(slide => {
+            slide.style.transform = `translateX(${-currentSlide * 100}%)`;
+        });
+
+        if (currentSlide >= allSlides.length - 1) {
+            setTimeout(() => {
+                // 트랜지션 제거 후 초기 위치로
+                allSlides.forEach(slide => {
+                    slide.style.transition = 'none';
+                    slide.style.transform = `translateX(0)`;
+                });
+                currentSlide = 0;
+
+                // 트랜지션 복원
+                requestAnimationFrame(() => {
+                    allSlides.forEach(slide => {
+                        slide.style.transition = 'transform 1s linear';
+                    });
+                });
+            }, 1000);
+        }
+    }
+
+    function startSlideShow() {
+        initSlider();
+        setInterval(moveSlide, 5000); // 5초마다 슬라이드 이동
+    }
+
+    startSlideShow();
+
+    // 드래그 기능
+    const logo = document.getElementById('draggableLogo');
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    logo.addEventListener('mousedown', dragStart);
+    logo.addEventListener('mousemove', drag);
+    logo.addEventListener('mouseup', dragEnd);
+    logo.addEventListener('mouseleave', dragEnd);
+
+    // 터치 이벤트
+    logo.addEventListener('touchstart', dragStart);
+    logo.addEventListener('touchmove', drag);
+    logo.addEventListener('touchend', dragEnd);
+
+    function dragStart(e) {
+        if (e.type === 'touchstart') {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+        }
+
+        if (e.target === logo) {
+            isDragging = true;
+        }
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            // 드래그 시 로고 회전 효과 추가
+            const rotation = currentX * 0.1; // 드래그 거리에 따라 회전
+            setTranslate(currentX, currentY, logo, rotation);
+        }
+    }
+
+    function setTranslate(xPos, yPos, el, rotation) {
+        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) rotate(${rotation}deg)`;
+    }
+
+    function dragEnd() {
+        if (isDragging) {
+            // 원래 위치로 부드럽게 돌아가기
+            logo.style.transition = 'transform 0.5s ease-out';
+            logo.style.transform = 'translate3d(0px, 0px, 0) rotate(0deg)';
+            
+            setTimeout(() => {
+                logo.style.transition = 'none';
+            }, 500);
+
+            initialX = currentX;
+            initialY = currentY;
+
+            isDragging = false;
+        }
+    }
+
+    // 행운 메시지 랜덤 텍스트
+    const luckyMessages = [
+        "오늘은 복을 나눌 시간이에요 🌿",
+        "티 향처럼 퍼지는 행운이 곧 찾아올 거예요 🍵",
+        "당신을 위한 따뜻한 순간, 옥차방에서 시작돼요 ☕️"
+    ];
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector("#lucky-message");
+        if (el) el.textContent = luckyMessages[Math.floor(Math.random() * luckyMessages.length)];
+    });
+
+    // 모바일 메뉴 제어
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeIcon = document.querySelector('.close-icon');
+    const body = document.body;
+
+    // 햄버거 메뉴 클릭 시
+    menuToggle.addEventListener('click', () => {
+        body.classList.toggle('menu-active');
+    });
+
+    // X 아이콘 클릭 시
+    closeIcon.addEventListener('click', () => {
+        body.classList.remove('menu-active');
+    });
+
+    // 모바일 메뉴 링크 클릭 시 메뉴 닫기
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            body.classList.remove('menu-active');
+        });
+    });
+
+    // 오버레이 클릭 시 메뉴 닫기
+    document.querySelector('.mobile-menu-overlay').addEventListener('click', () => {
+        body.classList.remove('menu-active');
+    });
+
+    // 스크롤시 메뉴 닫기
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (Math.abs(currentScroll - lastScroll) > 50) {
+            body.classList.remove('menu-active');
+            lastScroll = currentScroll;
+        }
+    });
+
+    // Menu 링크와 Contact 링크 클릭 처리
+    document.querySelectorAll('a[href="#featured-menu"], a[href="#contact-form"], a[href="#about"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            
+            // 모바일 메뉴가 열려있다면 닫기
+            if (document.body.classList.contains('menu-active')) {
+                document.body.classList.remove('menu-active');
+            }
+
+            // 약간의 딜레이 후 스크롤 (모바일 메뉴가 닫히는 것을 기다림)
+            setTimeout(() => {
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+        });
+    });
+
+    // 기존 observer 코드를 찾아 다음으로 교체
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    // 스크롤 기반 애니메이션
+    document.addEventListener('DOMContentLoaded', () => {
+      const brandSection = document.querySelector('.story-section');
+      const brandImages = document.querySelector('.story-image');
+      const imageWrappers = document.querySelectorAll('.image-wrapper');
+      const brandText = document.querySelector('.story-text');
+      
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+
+      function updateAnimation(scrollPercent) {
+        // 이미지 병합 애니메이션
+        const rotateY = scrollPercent * 360;
+        const scale = 1 + (scrollPercent * 0.2);
+        const opacity = 1 - (scrollPercent * 0.5);
+        
+        imageWrappers.forEach((wrapper, index) => {
+          const delay = index * 0.1;
+          const z = 200 - (scrollPercent * (200 - (index * 100)));
+          
+          wrapper.style.transform = `
+            translateZ(${z}px) 
+            scale(${scale}) 
+            rotateY(${rotateY}deg)
+          `;
+          wrapper.style.opacity = opacity;
+        });
+
+        // 텍스트 페이드인
+        if (scrollPercent > 0.2) {
+          brandText.classList.add('visible');
+        } else {
+          brandText.classList.remove('visible');
+        }
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const sectionTop = brandSection.offsetTop;
+            const sectionHeight = brandSection.offsetHeight - window.innerHeight;
+            const scrolled = window.scrollY - sectionTop;
+            const scrollPercent = Math.max(0, Math.min(1, scrolled / sectionHeight));
+            
+            updateAnimation(scrollPercent);
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      }
+
+      // 이미지 로드 완료 후 초기 애니메이션 설정
+      Promise.all(
+        Array.from(document.querySelectorAll('.featured-drink'))
+          .map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => img.addEventListener('load', resolve));
+          })
+      ).then(() => {
+        updateAnimation(0);
+        window.addEventListener('scroll', onScroll, { passive: true });
+      });
+
+      // 이미지 호버 효과
+      imageWrappers.forEach(wrapper => {
+        wrapper.addEventListener('mouseenter', () => {
+          wrapper.style.transform = `${wrapper.style.transform} scale(1.05)`;
+        });
+        
+        wrapper.addEventListener('mouseleave', () => {
+          wrapper.style.transform = wrapper.style.transform.replace(' scale(1.05)', '');
+        });
+      });
+    });
+
+    // 네이버 지도 초기화
+    function initMap() {
+        var mapOptions = {
+            center: new naver.maps.LatLng(35.0987, 129.0403), // 부산 중구 롯데백화점 기준
+            zoom: 15
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(35.0987, 129.0403),
+            map: map,
+            title: '옥차방 부산점'
+        });
+    }
+
+    // 페이지 로드 시 지도 초기화
+    window.addEventListener('load', initMap);
+    </script>
+</body>
+</html>

@@ -822,6 +822,64 @@
                 max-width: 100%;
             }
         }
+
+        .brand-story {
+            background: #000;
+            height: 300vh; /* 스크롤 영역 확보 */
+            position: relative;
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-images-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-stack {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 100vh;
+            margin: 0 auto;
+        }
+
+        .brand-image {
+            position: absolute;
+            width: 400px;
+            height: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        #image1 {
+            transform: translate(-50%, 0);
+            z-index: 3;
+        }
+
+        #image2 {
+            transform: translate(-50%, 100vh);
+            z-index: 2;
+        }
+
+        #image3 {
+            transform: translate(-50%, 200vh);
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="loading">
@@ -846,7 +904,7 @@
 
     <!-- Preloader -->
     <div id="preloader">
-        <img src="/assets/ocb-glyph-white.svg" alt="옥차방 로딩 심볼" />
+        <img src="/assets/ls-glyph-white.svg" alt="옥차방 로딩 심볼" />
     </div>
 
     <!-- Main Content -->
@@ -888,7 +946,7 @@
                 <div class="hero-slide" style="background-image: url('image/hero01.png')"></div>
             </div>
             <div class="hero-content">
-                <img src="image/logos.png" alt="옥차방" class="hero-logo">
+                <img src="assets/ls-glyph-white.svg" alt="옥차방" class="hero-logo">
             </div>
         </section>
 
@@ -896,15 +954,15 @@
         <section class="story-section" id="story-section">
             <div class="story-container">
                 <div class="story-text">
-                    <h2 class="story-title">THE OKCHABANG STORY</h2>
+                    <h2 class="story-title">CAFE LUCKYSPOT STORY</h2>
                     <p class="story-subtitle">INSPIRING THE WORLD TO SEEK<br>PERFECTION IN ORIGINALITY.</p>
                     <a href="#" class="learn-more-btn">브랜드 소개</a>
                 </div>
                 <div class="story-image">
                     <div class="image-stack">
-                        <img src="image/brand-drink1.png" alt="옥차방 시그니처 음료" class="featured-drink main-image">
-                        <img src="image/brand-drink2.png" alt="옥차방 음료 2" class="featured-drink back-image-1">
-                        <img src="image/brand-drink3.png" alt="옥차방 음료 3" class="featured-drink back-image-2">
+                        <img src="image/brand-drink01.png" alt="옥차방 시그니처 음료" class="featured-drink main-image">
+                        <img src="image/brand-drink02.png" alt="옥차방 음료 2" class="featured-drink back-image-1">
+                        <img src="image/brand-drink03.png" alt="옥차방 음료 3" class="featured-drink back-image-2">
                     </div>
                 </div>
             </div>
@@ -912,7 +970,7 @@
 
         <!-- ✨ 대표 메뉴 소개 섹션 -->
         <section class="featured-menu" id="featured-menu">
-            <h2 class="section-title">OKCHABANG MENU</h2>
+            <h2 class="section-title">LUCKYSPOT MENU</h2>
             
             <div class="category-buttons">
                 <button class="category-btn active" data-category="icecream">IceCream</button>
@@ -1126,6 +1184,18 @@
                         <input type="email" placeholder="담당자 이메일" class="signup-input" style="width: 100%;">
                         <button type="submit" class="signup-btn">제휴 문의하기</button>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-story">
+            <div class="sticky-container">
+                <div class="brand-images-container">
+                    <div class="image-stack">
+                        <img src="image/brand-drink01.png" alt="옥차방 시그니처 음료" class="brand-image" id="image1">
+                        <img src="image/brand-drink02.png" alt="옥차방 음료 2" class="brand-image" id="image2">
+                        <img src="image/brand-drink03.png" alt="옥차방 음료 3" class="brand-image" id="image3">
+                    </div>
                 </div>
             </div>
         </section>
